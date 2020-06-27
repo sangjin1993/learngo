@@ -1,13 +1,19 @@
 package main
 
-import (
-	"fmt"
+import "fmt"
 
-	"github.com/sangjin1993/learngo/something"
-)
+// name3 := "sang" 축약형 사용불가
 
 func main() {
-	fmt.Println("Hello world!")
-	something.SayHello()
-	//something.sayBye() 소문자로 시작하는 함수는 export가 안됌.
+	const name1 string = "nico"
+	// name1 = "lynn" cannot assign to name1
+	// const name bool = "nico" cannot convert to bool
+	fmt.Println(name1)
+
+	var name2 string = "nico"
+	// 축약형은 func안에서만 사용가능
+	// name2 := "nico" 축약형 go가 type를 자동으로 찾아줌.
+	name2 = "lynn"
+	fmt.Println(name2)
+
 }
