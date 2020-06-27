@@ -22,6 +22,15 @@ func repeatMe(words ...string) {
 	fmt.Println(words)
 }
 
+// naked function와 defer
+// 미리 리턴값을 지정하고 함수내 반환 부분은 인수 없이 return만 사용
+func lenAndUppercase(name string) (length int, uppercase string) {
+	defer fmt.Println("I'm done") // defer는 함수가 실행되고난 후 실행
+	length = len(name)
+	uppercase = strings.ToUpper(name)
+	return
+}
+
 func main() {
 	fmt.Println(multiply(2, 2))
 	// lenAndUpper함수의 리턴값이 totalLenght, upperName 변수에 들어감
@@ -44,4 +53,8 @@ func main() {
 	fmt.Println(upper)  // SANG
 
 	repeatMe("nico", "lynn", "dal", "marl", "flynn") //[nico lynn dal marl flynn]
+
+	// naked function
+	totalLenght, up := lenAndUppercase("nico")
+	fmt.Println(totalLenght, up)
 }
