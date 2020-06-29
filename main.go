@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	"github.com/sangjin1993/learngo/function"
+	"github.com/sangjin1993/learngo/ifwithatwist"
 
 	forloop "github.com/sangjin1993/learngo/for"
 )
@@ -52,4 +53,10 @@ func main() {
 
 	result := forloop.SuperAdd(1, 2, 3, 4, 5, 6)
 	fmt.Println(result)
+
+	fmt.Println("========================================")
+
+	fmt.Println("=================== If =====================")
+
+	fmt.Println(ifwithatwist.CanIDrink(16))
 }
