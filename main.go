@@ -5,6 +5,7 @@ import (
 
 	"github.com/sangjin1993/learngo/function"
 	"github.com/sangjin1993/learngo/ifwithatwist"
+	"github.com/sangjin1993/learngo/switchcase"
 
 	forloop "github.com/sangjin1993/learngo/for"
 )
@@ -59,4 +60,12 @@ func main() {
 	fmt.Println("=================== If =====================")
 
 	fmt.Println(ifwithatwist.CanIDrink(16))
+
+	fmt.Println("========================================")
+
+	fmt.Println("=================== Switch =====================")
+
+	fmt.Println(switchcase.CanIDrink(18))
+
+	fmt.Println("========================================")
 }
