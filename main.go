@@ -2,40 +2,20 @@ package main
 
 import (
 	"fmt"
-	"strings"
+
+	"github.com/sangjin1993/learngo/function"
+
+	forloop "github.com/sangjin1993/learngo/for"
 )
 
-// func 함수이름 (argument) returnType {}
-// func multiply(a int, b int) int {   //int축약가능
-func multiply(a, b int) int {
-	return a * b
-}
-
-// return 값을 여러개 할수 있음 go의 특별한 기능
-func lenAndUpper(name string) (int, string) {
-	// strings.ToUpper 대문자변환(UpperCase) package
-	return len(name), strings.ToUpper(name)
-}
-
-// variadic Function(가변인자함수) 다양한 숫자의 파라미터를 전달하고자 할 때 사용
-func repeatMe(words ...string) {
-	fmt.Println(words)
-}
-
-// naked function와 defer
-// 미리 리턴값을 지정하고 함수내 반환 부분은 인수 없이 return만 사용
-func lenAndUppercase(name string) (length int, uppercase string) {
-	defer fmt.Println("I'm done") // defer는 함수가 실행되고난 후 실행
-	length = len(name)
-	uppercase = strings.ToUpper(name)
-	return
-}
-
 func main() {
-	fmt.Println(multiply(2, 2))
+
+	fmt.Println("================== function ======================")
+
+	fmt.Println(function.Multiply(2, 2))
 	// lenAndUpper함수의 리턴값이 totalLenght, upperName 변수에 들어감
 
-	totalLenght, upperName := lenAndUpper("nico")
+	totalLenght, upperName := function.LenAndUpper("nico")
 	// 순서대로 len(), strings.ToUpper()를 totalLenght, upperName에 값 리턴
 	// totalLenght = len("nico") => 4
 	// upperName = strings.ToUpper("nico") => NICO
@@ -47,14 +27,29 @@ func main() {
 
 	// underscore(_) 사용하면 ignore value
 	// len()은 사용 strings.ToUpper()은 무시함
-	lenght, _ := lenAndUpper("sang")
-	_, upper := lenAndUpper("sang")
+	lenght, _ := function.LenAndUpper("sang")
+	_, upper := function.LenAndUpper("sang")
 	fmt.Println(lenght) // 4
 	fmt.Println(upper)  // SANG
 
-	repeatMe("nico", "lynn", "dal", "marl", "flynn") //[nico lynn dal marl flynn]
+	function.RepeatMe("nico", "lynn", "dal", "marl", "flynn") //[nico lynn dal marl flynn]
 
 	// naked function
-	totalLenght, up := lenAndUppercase("nico")
+	totalLenght, up := function.LenAndUppercase("nico")
 	fmt.Println(totalLenght, up)
+
+	fmt.Println("========================================")
+
+	fmt.Println("=================== for =====================")
+
+	// forloop Add 함수 실행
+	forloop.Add(1, 2, 3, 4, 5, 6)
+
+	// forloop AddLength 실행 len함수를 이용해서 출력
+	forloop.AddLenght(1, 2, 3, 4, 5, 6)
+
+	// total := add(1, 2, 3, 4, 5, 6)
+
+	result := forloop.SuperAdd(1, 2, 3, 4, 5, 6)
+	fmt.Println(result)
 }
