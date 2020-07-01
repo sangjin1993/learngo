@@ -3,11 +3,10 @@ package main
 import (
 	"fmt"
 
-	"github.com/sangjin1993/learngo/function"
-	"github.com/sangjin1993/learngo/ifwithatwist"
-	"github.com/sangjin1993/learngo/switchcase"
-
-	forloop "github.com/sangjin1993/learngo/for"
+	"github.com/sangjin1993/learngo/golearn/forloop"
+	"github.com/sangjin1993/learngo/golearn/function"
+	"github.com/sangjin1993/learngo/golearn/ifwithatwist"
+	"github.com/sangjin1993/learngo/golearn/switchcase"
 )
 
 func main() {
