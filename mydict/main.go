@@ -20,4 +20,12 @@ func main() {
 		fmt.Println(definition)
 	}
 
+	// word := "hello"
+	// hello := "Greeting"
+	// err2 := dictionary.Add(word, definition)
+	// if err != nil {
+	// 	fmt.Println(err)
+	// }
+	// hello, _ := dictionary.Search(word)
+	// fmt.Println(hello)
 }
