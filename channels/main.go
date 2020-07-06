@@ -20,9 +20,10 @@ func main() {
 	// 오류 발생 blocking operation
 	// resultThree := <-c
 
-	fmt.Println("waiting fo massage")
 	// for loop를 이용해서 사용 가능 동시에 결과 return
 	for i := 0; i < len(people); i++ {
+		// massage를 받는 건 blocking operation
+		fmt.Print("waiting for", i)
 		fmt.Println(<-c)
 	}
 	// fmt.Println("Received this message:", resultOne)
