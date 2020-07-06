@@ -6,7 +6,7 @@ import (
 	"net/http"
 )
 
-type result struct {
+type requestResult struct {
 	url    string
 	status string
 }
@@ -18,7 +18,8 @@ func main() {
 	// var results map[string]string
 	// var results = map[string]string{}
 	// make를 활용하여 초기화 할수 있음
-	c := make(chan result)
+	results := make(map[string]string)
+	c := make(chan requestResult)
 	urls := []string{
 		"https://www.airbnb.com/",
 		"https://www.google.com/",
@@ -36,15 +37,23 @@ func main() {
 	for _, url := range urls {
 		go hitURL(url, c)
 	}
+
+	for i := 0; i < len(urls); i++ {
+		result := <-c
+		results[result.url] = result.status
+	}
+
+	for url, status := range results {
+		fmt.Println(url, status)
+	}
 }
 
 // chan<- 추가하면 send only
-func hitURL(url string, c chan<- result) {
-	fmt.Println("Checking:", url)
+func hitURL(url string, c chan<- requestResult) {
 	resp, err := http.Get(url)
 	status := "OK"
 	if err != nil || resp.StatusCode >= 400 {
 		status = "FAILED"
 	}
-	c <- result{url: url, status: status}
+	c <- requestResult{url: url, status: status}
 }
